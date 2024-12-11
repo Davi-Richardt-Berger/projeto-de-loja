@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike Air Zoom Pegasus</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset de estilos básicos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            padding: 0;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #000000;
+            color: #fff;
+            padding: 20px 30px;
+            text-align: left;
+            border-bottom: 2px solid #333;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header h1 {
+            font-size: 36px; /* Aumentando o tamanho do título */
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin: 0;
+            text-transform: uppercase;
+            flex-grow: 1;
+            text-align: center;
+            color: #ffffff; /* Cor de destaque para o título */
+        }
+
+        /* Logo da Nike */
+        .nike-logo {
+            width: 90px;
+            cursor: pointer;
+        }
+
+        .product-detail {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 120px; /* Aumentando a margem para espaçar do header */
+            padding: 30px 20px;
+        }
+
+        .product-detail img {
+            max-width: 500px; /* Imagem mais larga */
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .product-detail img:hover {
+            transform: scale(1.05);
+        }
+
+        .product-description {
+            max-width: 500px;
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-description h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #111;
+            text-transform: uppercase;
+        }
+
+        .product-description h3 {
+            font-size: 20px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .product-description ul {
+            list-style-type: none;
+            margin-bottom: 15px;
+        }
+
+        .product-description li {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .product-description p {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .product-description strong {
+            font-weight: 700;
+            color: #000;
+        }
+
+        /* Botões */
+        button {
+            background-color: #111;
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff4500;
+            transform: scale(1.05);
+        }
+
+        /* Seção de outros modelos */
+        .other-models {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+
+        .other-models .model {
+            max-width: 300px;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 20px; /* Adicionando padding para melhor espaçamento */
+        }
+
+        .other-models .model img {
+            width: 100%;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .other-models .model h4 {
+            font-size: 20px;
+            margin-top: 15px;
+            color: #333;
+        }
+
+        .other-models .model p {
+            font-size: 14px;
+            color: #555;
+            margin-top: 10px;
+            line-height: 1.4;
+        }
+
+        .other-models .model h2 {
+            font-size: 18px;
+            color: #111;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .other-models .model button {
+            margin-top: 15px;
+        }
+
+        .other-models .model:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        footer {
+            background-color: #000000;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            position: relative;
+            margin-top: 30px;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            font-size: 12px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .product-detail {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .product-detail img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            .other-models {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Animação suave ao carregar */
+        .product-description, .product-detail img {
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+        }
+
+        .product-description {
+            animation-delay: 0.3s;
+        }
+
+        .product-detail img {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <!-- Logo agora redireciona para a página inicial -->
+    <a href="loja_virtual.html"><img src="https://static.vecteezy.com/ti/vetor-gratis/p1/10994411-nike-logotipo-design-de-roupas-brancas-icone-abstrato-futebol-ilustracaoial-com-fundo-preto-gratis-vetor.jpg" alt="Nike Logo" class="nike-logo"></a>
+    <h1>Nike Air Zoom Pegasus</h1>
+</header>
+
+<div class="product-detail">
+    <img src="https://imgcentauro-a.akamaihd.net/1366x1366/M0OF8J01.jpg" alt="Nike Air Zoom Pegasus">
+    <div class="product-description">
+        <h2>Descrição do Produto</h2>
+        <p>O Nike Air Zoom Pegasus é perfeito para corridas e treinos intensos. Ele oferece o equilíbrio ideal entre conforto e performance, com uma construção durável e responsiva. Com tecnologia Zoom Air, esse modelo é perfeito para quem busca performance nas pistas e nas ruas.</p>
+        <h3>Características</h3>
+        <ul>
+            <li>Amortecimento Zoom Air para maior conforto e retorno de energia</li>
+            <li>Design versátil para treinos e uso diário</li>
+            <li>Solado durável com excelente tração</li>
+            <li>Parte superior respirável para mais conforto durante os treinos</li>
+        </ul>
+        <p><strong>Preço:</strong> R$ 549,99</p>
+        <button onclick="window.location.href='#ND#'">Comprar Agora</button>
+    </div>
+</div>
+
+<!-- Seção de outros modelos -->
+<div class="other-models">
+    <div class="model">
+        <img src="https://imgnike-a.akamaihd.net/360x360/01122452.jpg" alt="Nike Air Max">
+        <h4>Tênis Nike Air Max</h4>
+        <p>Conforto e estilo para o seu treino, com a famosa tecnologia Air Max para amortecimento superior.</p>
+        <h2>R$ 332,49</h2>
+        <button onclick="window.location.href='#'">Ver Produto</button>
+    </div>
+    <div class="model">
+        <img src="https://imgnike-a.akamaihd.net/360x360/02591451A8.jpg" alt="Nike React Element">
+        <h4>Tênis Nike Vaporfly</h4>
+        <p>Desenvolvido para corredores de alta performance, este modelo conta com a tecnologia VaporMax para um impulso incomparável.</p>
+        <h2>R$ 1709,99</h2>
+        <button onclick="window.location.href='#'">Ver Produto</button>
+    </div>
+    <div class="model">
+        <img src="https://imgnike-a.akamaihd.net/360x360/00819351.jpg" alt="Nike ZoomX Vaporfly Next% 2">
+        <h4>Tênis Nike React Phantom Run Flyknit</h4>
+        <p>Com design aerodinâmico e materiais leves, oferece máxima agilidade e desempenho para corridas longas.</p>
+        <h2>R$ 664,99</h2>
+        <button onclick="window.location.href='#'">Ver Produto</button>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Nike Store. Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>
